@@ -28,6 +28,9 @@ $(document).ready(function(){
   $('#newBookForm').on('submit', function(event){
     event.preventDefault();
     var newBookObject = {};
+    if(typeof editionOfBookToSave != Number){
+      alert('Numbers only for edition!')
+    };
     var formFields = $(this).serializeArray();
     formFields.forEach(function (field) {
       newBookObject[field.name] = field.value;
@@ -65,6 +68,10 @@ $(document).ready(function(){
     var authorOfBookToSave = $(this).parent().parent().find('.bookAuthor').val();
     var editionOfBookToSave = $(this).parent().parent().find('.bookEdition').val();
     var publisherOfBookToSave = $(this).parent().parent().find('.bookPublisher').val();
+    if(typeof editionOfBookToSave != Number){
+      alert('Numbers only for edition!')
+    };
+
     var bookObjectToSave = {
       title: titleOfBookToSave,
       author: authorOfBookToSave,
